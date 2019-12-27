@@ -1,0 +1,102 @@
+{{#if showMsg}}
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Success!</strong> {{Msg}}
+</div>
+{{/if}}
+<div class="container sp">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Quản lý tài khoản khách hàng</h3>
+        </div>
+        <div class="panel-body">
+            <span> </span>
+            <div class="table-responsive">
+                <table class="table" id="tableDH">
+                    <thead>
+                        <tr>
+                            <th>
+                                <a>User name</a>
+                            </th>
+                            <th>
+                                <a>Tên khách hàng</a>
+                            </th>
+                            <th>
+                                <a>Loại người dùng</a>
+                            </th>
+                            <th>
+                                <a>Reset password</a>
+                            </th>
+                            <th>
+                                <a>Delete acount</a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each user}}
+                        <tr>
+                            <form action="" method="POST">
+                                <td>{{userName}} </td>
+                                <td>{{hoTen}} </td>
+                                <td>{{loaiNguoiDung}}</td>
+                                <td>
+                                    <input value="{{userName}}" type="text" name="name" class="hidden">
+
+                                    <button class="btn btn-info" type="submit">Reset</button>
+                                </td>
+                            </form>
+                            <td>
+                                <a class="btn" href="/manager/acount/delete?id={{userName}}" role="button" style="background-color: salmon">
+                                    Xóa
+                                </a>
+                            </td>
+                        </tr>
+                        {{/each}}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <a href="dashboard">
+        <button class="btn btn-success" type="button">Quay lại</button>
+    </a>
+
+</div>
+{{#section 'js'}}
+<script src="/phantrang/jquery.min.js"></script>
+<script src="/phantrang/bootstrap.min.js"></script>
+<script src="/phantrang/jquery.dataTables.min.js"></script>
+<script src="/phantrang/dataTables.bootstrap.min.js"></script>
+<script src="/dist/js/adminlte.min.js"></script>
+
+<script>
+    $(function () {
+        $('#tableDH').DataTable({
+            'paging': true,
+            'lengthChange': true,
+            'searching': false,
+            'ordering': true,
+            'info': true,
+            'autoWidth': true,
+            'language': {
+                "lengthMenu": "Hiển thị _MENU_ dòng",
+                "info": "Đang hiển thị _START_ tới _END_ tổng số _TOTAL_ kết quả",
+                "paginate": {
+                    "first": "Trang đầu",
+                    "last": "Trang cuối",
+                    "next": "Tiếp",
+                    "previous": "Trước"
+                }
+            }
+        });
+    });
+    $(function () {
+        //Date picker
+        $('#datepicker').datepicker({
+            autoclose: true
+        });
+    });
+    //Initialize Select2 Elements
+    $('.select2').select2();
+</script> {{/section}}

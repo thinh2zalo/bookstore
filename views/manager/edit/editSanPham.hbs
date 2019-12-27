@@ -1,0 +1,91 @@
+{{#if showMsg}}
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Success!</strong> {{Msg}}
+</div>
+{{/if}}
+ {{#if ErrMsg}}
+<div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Error!</strong> {{Msg}}
+</div>
+{{/if}}
+<form action="" method="POST" enctype="multipart/form-data" role="form" onsubmit="return validate();">
+            <div class="mod-login">
+                <div class="mod-login-col1" style="width: 350px;">
+                    <div class="mod-input">
+                        <label style="font-size: 14px">Tên sách</label>
+                        <input type="text" placeholder="Nhập tên sách" data-meta="Field" value="{{Book.ten_sach}}" name="ten_sach" id="tensach">
+                        <b></b>
+                        <span></span>
+                    </div>
+                    <div class="mod-input">
+                        <label style="font-size: 14px">Tác giả</label>
+                        <input type="text" placeholder="Nhập tên tác giả" data-meta="Field" value="{{Book.tac_gia}}" name="tac_gia" id="tacgia">
+                        <b></b>
+                        <span></span>
+
+                    </div>
+                    <div class="mod-input">
+                        <label style="font-size: 14px">Nhà xuất bản</label>
+                        <select name="idNhaSX" class="form-control" style="border: 1px solid #5bb7c3;border-radius: 36px;font-size: 14px;height: 40px;" id="nhaxuatban">
+                            <option value="{{Book.idNhaSX}}">{{Book.tenNhaSX}}</option>
+                            {{#each nxb}}
+                            <option value="{{idNhaSX}}">{{tenNhaSX}}</option>
+                            {{/each}}
+                        </select>
+                        <span></span>
+
+                    </div>
+                    <div class="mod-input">
+                        <label style="font-size: 14px">Chọn ảnh hiển thị</label>                        
+                       
+                        <input type="file" name="fileS" id="file">
+                    </div>
+                </div>
+                <div class="mod-login-col2" style="width: 350px;">
+                    <div class="mod-input">
+                        <label style="font-size: 14px">Giá sách</label>
+                        <input type="number" placeholder="Nhập giá sách" data-meta="Field" name="giaBan" value="{{Book.giaBan}}" id="giaban">
+                        <b></b>
+                        <span></span>
+
+                    </div>
+                    <div class="mod-input">
+                        <label style="font-size: 14px">Số lượng</label>
+                        <input type="number" placeholder="Nhập giá sách" data-meta="Field" name="sl" value="{{Book.soLuong}}" id="soluong">
+                        <b></b>
+                        <span></span>
+
+                    </div>
+
+                    <div class="mod-input">
+                        <label style="font-size: 14px">Loại sách</label>
+                        <select name="idLoai" class="form-control" style="border: 1px solid #5bb7c3;border-radius: 16px;font-size: 14px;height: 40px;" id="loaisach">
+                            <option value="{{Book.idLoai}}">{{Book.tenLoai}}</option>
+                            {{#each loai}}
+                            <option value="{{idLoai}}">{{tenLoai}}</option>
+                            {{/each}}
+                        </select>
+                        <span></span>
+                    </div>
+                    <div class="mod-input">
+                        <label style="font-size: 14px">Mô tả</label>
+                        <input type="text" placeholder="Nhập mô tả sách" data-meta="Field" value="{{Book.moTa}}" name="moTa" id="mota">
+                        <b></b>
+                        <span></span>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="form-row subscribe-outer" style="width: 18%;margin-left: 300px;margin-top: -40px">
+                <button type="submit" class="button-default ygradient1 ">Cập Nhật</button>
+                <a href="./">
+                <button type="button" class="button-default ygradient1 ">Quay lại</button>
+                
+                </a>
+            </div>
+        </form>

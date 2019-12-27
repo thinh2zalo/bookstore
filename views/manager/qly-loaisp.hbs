@@ -1,0 +1,99 @@
+{{#if showMsg}}
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Success!</strong> {{Msg}}
+</div>
+{{/if}}
+<div class="container sp">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Quản lý loại sách</h3>
+        </div>
+        <div class="panel-body">
+            <span> </span>
+            <div class="table-responsive">
+                <table class="table" id="tableDH">
+                    <thead>
+                        <tr>
+                            <th>
+                                <a>Mã Loại</a>
+                            </th>
+                            <th>
+                                <a>Tên loại sách</a>
+                            </th>
+                            <th style="float:right;margin-right:50px">Sửa</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each theloai}}
+                        <tr>
+                            <td>{{idLoai}} </td>
+                            <form action="" method="POST">
+                                <td>
+                                    <input type="text" placeholder="Nhập tên loại" data-meta="Field" name="tenLoai" value="{{tenLoai}}" style="    border: none;">
+                                    <input type="text" class="hidden" value="{{idLoai}}" name="idLoai">
+                                </td>
+                                {{!--
+                                <td>{{tenLoai}}</td> --}}
+                                <td>
+                                    <button class="btn btn-info" type="submit" style="float:right; background-color: gold;color: #000000;">
+                                        Lưu
+                                    </button>
+
+                                </td>
+                            </form>
+                        </tr>
+                        {{/each}}
+
+                    </tbody>
+
+                </table>
+                <a href="theloai/add">
+                    <button class="btn btn-success" type="button">Thêm Thể Loại</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <a href="dashboard">
+        <button class="btn btn-success" type="button">Quay lại</button>
+    </a>
+
+</div>
+{{#section 'js'}}
+<script src="/phantrang/jquery.min.js"></script>
+<script src="/phantrang/bootstrap.min.js"></script>
+<script src="/phantrang/jquery.dataTables.min.js"></script>
+<script src="/phantrang/dataTables.bootstrap.min.js"></script>
+<script src="/dist/js/adminlte.min.js"></script>
+
+<script>
+    $(function () {
+        $('#tableDH').DataTable({
+            'paging': true,
+            'lengthChange': true,
+            'searching': false,
+            'ordering': true,
+            'info': true,
+            'autoWidth': true,
+            'language': {
+                "lengthMenu": "Hiển thị _MENU_ dòng",
+                "info": "Đang hiển thị _START_ tới _END_ tổng số _TOTAL_ kết quả",
+                "paginate": {
+                    "first": "Trang đầu",
+                    "last": "Trang cuối",
+                    "next": "Tiếp",
+                    "previous": "Trước"
+                }
+            }
+        });
+    });
+    $(function () {
+        //Date picker
+        $('#datepicker').datepicker({
+            autoclose: true
+        });
+    });
+    //Initialize Select2 Elements
+    $('.select2').select2();
+</script> {{/section}}

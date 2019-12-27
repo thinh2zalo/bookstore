@@ -1,0 +1,81 @@
+
+{{#if showAlert}}
+    <div class="alert alert-success"style="margin-left: 230px;width:800px;">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        Sản phẩm được thêm thành công!
+    </div>
+{{/if}}
+
+<div class="login">
+    <div class="login-title"style="margin-left: 520px">
+
+        <h3 style="color: #0f8edd">Thêm mới sản phẩm</h3>
+
+    </div>
+    <div>
+        <form action="" method="POST" role="form" onsubmit="return validate();">
+            <div class="mod-login">
+                <div class="mod-login-col1"style="width: 350px;">
+                    <div class="mod-input">
+                        <label style="font-size: 14px">Tên sách</label>
+                        <input type="text" placeholder="Nhập tên sách" data-meta="Field" name="ten_sach">
+                        <b></b>
+                        <span></span>
+                    </div>
+                    <div class="mod-input">
+                        <label style="font-size: 14px">Tác giả</label>
+                        <input type="text" placeholder="Nhập tên tác giả" data-meta="Field" name="tac_gia">
+                        <b></b>
+                        <span></span>
+
+                    </div>
+                    <div class="mod-input">
+                        <label style="font-size: 14px">Nhà xuất bản</label>
+                        <select name="idNhaSX"class="form-control"style="border: 1px solid #5bb7c3;border-radius: 36px;font-size: 14px;height: 40px;">
+                            <option >Chọn nhà xuất bản</option>
+                            <option value="1">Văn học</option>
+                            <option value="2">Tổng hợp TPHCM</option>
+                            <option value="3">Xuất bản trẻ</option>
+                        </select>
+
+                    </div>
+
+                </div>
+                <div class="mod-login-col2" style="width: 350px;">
+                    <div class="mod-input">
+                        <label style="font-size: 14px">Giá sách</label>
+                        <input type="text" placeholder="Nhập giá sách" data-meta="Field" name="giaBan">
+                        <b></b>
+                        <span></span>
+
+                    </div>
+                    <div class="mod-input">
+                        <label style="font-size: 14px">Số lượng</label>
+                        <input type="text" placeholder="Nhập giá sách" data-meta="Field" name="sl">
+                        <b></b>
+                        <span></span>
+
+                    </div>
+
+                    <div class="mod-input" >
+                        <label style="font-size: 14px">Loại sách</label>
+                    <select NAME="idLoai" class="form-control"style="border: 1px solid #5bb7c3;border-radius: 16px;font-size: 14px;height: 40px;">
+                        <option >Chọn loại sách</option>
+                        <option value="1">Văn học trẻ</option>
+                        <option value="2">Kinh tế</option>
+                        <option value="3">Thường thức - đời sống</option>
+                    </select>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="form-row subscribe-outer" style="width: 18%;margin-left: 600px;margin-top: -40px">
+                <button type="submit" class="button-default ygradient1 " >THÊM</button>
+            </div>
+        </form>
+    </div>
+</div>
+  

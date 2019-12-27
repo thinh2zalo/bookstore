@@ -1,0 +1,122 @@
+<div class="container sp">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Quản lý đơn hàng</h3>
+        </div>
+        <div class="panel-body">
+            <span> </span>
+            <div class="table-responsive">
+                <table class="table" id="tableDH">
+                    <thead>
+                        <tr>
+                            <th><a>Mã đơn</a></th>
+                            <th><a>Ngày đặt</a></th>
+                            <th><a>Tên khách hàng</a></th>
+                            <th><a>Địa chỉ nhận</a></th>
+
+                            <th><a>Số điện thoại</a></th>
+                            <th><a>Tình trạng</a></th>
+                            <th>Sửa trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each donhang}} {{#if trangThai}}
+
+                        <tr class="green">
+                            <td>{{idThanhToan}} </td>
+                            <td>{{dateFormat ngayDatHang "DD/MM/YYYY, h:mm:ss a"}} </td>
+                            <td>{{hoTen}}</td>
+                            <td>{{diaChi}} </td>
+                            <td>{{soDT}} </td>
+                            <form action="" method="POST">
+                                <td>
+                                    <select name="select">
+                                        <option value="1">Đã giao hàng</option>
+                                        <option value="0">Đang giao hàng</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="hidden" name="idThanhToan" value="{{idThanhToan}}">
+                                    <button class="btn btn-info" type="submit">Cập nhật</button>
+                                </td>
+                            </form>
+
+                        </tr>
+
+
+                        {{else}}
+
+                        <tr>
+                            <input type="text" class="hidden" name="idThanhToan" value="{{idThanhToan}}">
+                            <td>{{idThanhToan}} </td>
+                            <td>{{dateFormat ngayDatHang "DD/MM/YYYY, h:mm:ss a"}} </td>
+                            <td>{{hoTen}}</td>
+                            <td>{{diaChi}} </td>
+                            <td>{{soDT}} </td>
+
+                            <form action="" method="POST">
+                                <td>
+                                    <select name="select">
+                                        <option value="0">Đang giao hàng</option>
+                                        <option value="1">Đã giao hàng</option>
+                                    </select>
+                                </td>
+                                <td>
+
+                                    <input type="text" class="hidden" name="idThanhToan" value="{{idThanhToan}}">
+                                    <button class="btn btn-info" type="submit">Cập nhật</button>
+
+                                </td>
+                            </form>
+                        </tr>
+
+
+                        {{/if}} {{/each}}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <a href="dashboard">
+        <button class="btn btn-success" type="button">Quay lại</button>
+    </a>
+
+</div>
+{{#section 'js'}}
+<script src="/phantrang/jquery.min.js"></script>
+<script src="/phantrang/bootstrap.min.js"></script>
+<script src="/phantrang/jquery.dataTables.min.js"></script>
+<script src="/phantrang/dataTables.bootstrap.min.js"></script>
+<script src="/dist/js/adminlte.min.js"></script>
+
+<script>
+    $(function () {
+        $('#tableDH').DataTable({
+            'paging': true,
+            'lengthChange': true,
+            'searching': false,
+            'ordering': true,
+            'info': true,
+            'autoWidth': true,
+            'language': {
+                "lengthMenu": "Hiển thị _MENU_ dòng",
+                "info": "Đang hiển thị _START_ tới _END_ tổng số _TOTAL_ kết quả",
+                "paginate": {
+                    "first": "Trang đầu",
+                    "last": "Trang cuối",
+                    "next": "Tiếp",
+                    "previous": "Trước"
+                }
+            }
+        });
+    });
+    $(function () {
+        //Date picker
+        $('#datepicker').datepicker({
+            autoclose: true
+        });
+    });
+    //Initialize Select2 Elements
+    $('.select2').select2();
+</script> {{/section}}

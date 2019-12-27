@@ -1,0 +1,38 @@
+<div class="container sp">
+    <div class="row">
+        <div class="col-md-2">
+            <h4>Xin chào {{name}}</h4>
+            <div>
+                <a href="doiMK">Đổi mật khẩu</a>
+            </div>
+            <div>
+                <a href="profile">Lịch sử mua hàng</a>
+            </div>
+            <div>
+                <a href="../cart">Giỏ hàng</a>
+            </div>
+        </div>
+        <form action="" method="POST">
+            <div class="col-md-3">
+                <span>Tên </span>
+                <input type="text" value="{{name}}" class="ip" name="name"/>
+                <hr />
+            </div>
+
+            <div class="col-md-3">
+                <span> Số điện thoại</span>
+                <input type="text" value="{{sdt}}" class="ip" name="phonenumber"/>
+                <hr />
+                <span>Sổ địa chỉ</span>
+                <input type="text" value="{{diachi}}" class="ip" name="address"/>
+                <hr />
+            </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-md-offset-5">
+            <button type="submit" class="next-btn next-btn-primary next-btn-large">LƯU THÔNG TIN</button>
+        </div>
+    </div>
+    </form>
+
+</div>

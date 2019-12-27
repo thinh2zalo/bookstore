@@ -1,0 +1,112 @@
+ {{#section 'js'}}
+<script type="text/javascript">
+    var validate = function () {
+        if ($('#txtUsername').val().length === 0) {
+            alert('Vui lòng nhập tên đăng nhập');
+            return false;
+        }
+        if ($('#txtPWD').val().length < 6) {
+            alert('Mật khẩu ít nhất 6 kí tự');
+            return false;
+        }
+        if ($('#txtPWD').val() !== $('#txtCPWD').val()) {
+            alert('2 mật khẩu không trùng nhau');
+            return false;
+        }
+         if ($('#g-recaptcha-response').val() == ''){
+            alert('Vui lòng xác nhận capcha');
+            return false;
+        }
+        if ($('#email').val().length ===0){
+            alert('Vui lòng nhập email');
+            return false;
+        }
+        return true;
+    }
+</script> 
+
+{{/section}} {{#if showError}}
+<div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Error!</strong> {{errorMsg}}
+</div>
+{{/if}} {{#if Success}}
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Success!</strong> {{Msg}}
+</div>
+{{/if}}
+
+
+<div class="login">
+    <div class="login-title" style="margin-left: 370px">
+
+        <h3>Tạo tài khoản BookStore</h3>
+        <div class="login-other" style="margin-right: 300px;margin-top: -23px">
+            <span>Đã là thành viên?
+                <a href="dang-nhap.html">Đăng nhập</a> tại đây</span>
+        </div>
+    </div>
+    <div>
+        <form action="" method="POST" role="form" onsubmit="return validate();">
+            <div class="mod-login">
+                <div class="mod-login-col1" style="width: 350px;">
+                    <div class="mod-input mod-login-input-email mod-input-email">
+                        <label>Tên đăng nhập</label>
+                        <input id="txtUsername" type="text" placeholder="Tên đăng nhập" name="username">
+                        <b></b>
+                        <span></span>
+                    </div>
+                    <div class="mod-input mod-input-password mod-login-input-password mod-input-password">
+                        <label>Mật khẩu</label>
+                        <input id="txtPWD" type="password" placeholder="Tối thiểu 6 kí tự bao gồm cả chữ và số" data-meta="Field" name="pass">
+                        <b></b>
+                        <span></span>
+
+                    </div>
+                    <div class="mod-input mod-input-password mod-login-input-re-password mod-input-re-password">
+                        <label>Nhập lại mật khẩu</label>
+                        <input id="txtCPWD" type="password" placeholder="Vui lòng nhập lại mật khẩu" data-meta="Field" name="repass">
+                        <b></b>
+                        <span></span>
+                    </div>
+
+                        <div class="g-recaptcha" data-sitekey="6LdoIGEUAAAAADW83_JdZknEjFYPl7bLmJD_YVzo" data-callback="correctCaptcha"></div>
+                    
+                    <span></span>
+                </div>
+                <div class="mod-login-col2" style="width: 350px;">
+                    <div class="mod-input mod-login-input-name mod-input-name">
+                        <label>Họ tên</label>
+                        <input type="text" placeholder="Họ Tên" data-meta="Field" name="fullname">
+                        <b></b>
+                        <span></span>
+                    </div>
+                    <div class="mod-input mod-login-input-name mod-input-name">
+                        <label>Địa chỉ</label>
+                        <input type="text" placeholder="Địa chỉ" data-meta="Field" name="address">
+                        <b></b>
+                        <span></span>
+                    </div>
+                    <div class="mod-input mod-login-input-name mod-input-name">
+                        <label>Số điện thoại</label>
+                        <input maxlength="11" type="number" placeholder="Số điện thoại" name="phone">
+                        <b></b>
+                        <span></span>
+                    </div>
+                    <div class="mod-input mod-login-input-name mod-input-name">
+                        <label>Email</label>
+                        <input type="email" placeholder="Email" name="email"data-meta="Field" id="email">
+                        <b></b>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="form-row subscribe-outer" style="width: 18%;margin-left: 100px">
+                    <button type="submit" class="button-default ygradient1 ">ĐĂNG KÝ</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+<script src='https://www.google.com/recaptcha/api.js'></script>

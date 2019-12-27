@@ -1,0 +1,34 @@
+{{#if showMsg}}
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Success!</strong> {{Msg}}
+</div>
+{{/if}}
+
+<div class="login">
+    <div class="login-title" style="margin-left: 520px">
+
+        <h3 style="color: #0f8edd">Thêm mới nhà xuất bản</h3>
+
+    </div>
+    <div>
+        <form action="" method="POST">
+            <div class="mod-login">
+                <div class="mod-login-col1" style="width: 350px;">
+                    <div class="mod-input">
+                        <label style="font-size: 14px">Tên nhà xuất bản</label>
+                        <input type="text" placeholder="Nhập tên nhà xuất bản" data-meta="Field" name="tenNXB">
+                        <b></b>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row subscribe-outer" style="width: 18%;margin-left: 260px;margin-top: -40px">
+                <a href="/manager/nxb">
+                    <button type="button" class="button-default ygradient1 ">Quay lại</button>
+                </a>
+                <button type="submit" class="button-default ygradient1 ">THÊM</button>
+            </div>
+        </form>
+    </div>
+</div>
