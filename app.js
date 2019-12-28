@@ -82,7 +82,7 @@ app.engine('hbs', exphbs({
 
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, "views"));
-app.use(express.static(path.resolve(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(formidable());
 app.use(bodyParser.json());
