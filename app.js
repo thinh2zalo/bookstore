@@ -103,6 +103,8 @@ app.use('/', HomeController);
 
 app.use(handle404MDW);
 
-app.listen(3000, () => {
-    console.log("Server is running on port: " + 3004);
+const port = process.env.PORT || 3000
+
+app.listen(port, () => {
+    console.log("Server is running on port: " + port);
 });
