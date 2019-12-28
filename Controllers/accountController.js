@@ -5,8 +5,6 @@ var format = require('date-format');
 var accountRepo = require('../repos/accountRepo');
 var payRepo = require('../repos/payRepo');
 var restrict = require('../middle-wares/restrict');
-var Recaptcha = require('express-recaptcha').Recaptcha;
-var recaptcha = new Recaptcha('6LdoIGEUAAAAADW83_JdZknEjFYPl7bLmJD_YVzo', '6LdoIGEUAAAAANFjdBJxqiedi0D8wd3FtVWxCJUN');
 var nodemailer =  require('nodemailer'); // khai báo sử dụng module nodemailer
 var transporter =  nodemailer.createTransport({ // config mail server
     service: 'Gmail',
